@@ -1,0 +1,39 @@
+<p align="center">
+    <img src="docs/example.png" width="100%">
+</p>
+
+<p align="center">
+  <a href="https://styleci.io/repos/120183041"><img src="https://styleci.io/repos/120183041/shield" alt="StyleCI Status"></img></a>
+  <a href="https://packagist.org/packages/nunomaduro/laravel-console-summary"><img src="https://poser.pugx.org/nunomaduro/laravel-console-summary/v/stable.svg" alt="Latest Stable Version"></a>
+  <a href="https://packagist.org/packages/nunomaduro/laravel-console-summary"><img src="https://poser.pugx.org/nunomaduro/laravel-console-summary/license.svg" alt="License"></a>
+</p>
+
+## About Laravel Console Summary
+
+Laravel Console Summary was created by, and is maintained by [Nuno Maduro](https://github.com/nunomaduro), and is a replacement for the List Command in Laravel Console Commands.
+
+## Installation
+
+> **Requires [PHP 7.1.3+](https://php.net/releases/)**
+
+Require Laravel Console Summary using [Composer](https://getcomposer.org):
+
+```bash
+composer require nunomaduro/laravel-console-summary
+```
+
+## Contributing
+
+Thank you for considering to contribute to Laravel Console Summary. All the contribution guidelines are mentioned [here](CONTRIBUTING.md).
+
+You can have a look at the [CHANGELOG](CHANGELOG.md) for constant updates & detailed information about the changes. You can also follow the twitter account for latest announcements or just come say hi!: [@enunomaduro](https://twitter.com/enunomaduro)
+
+## Support the development
+**Do you like this project? Support it by donating**
+
+- PayPal: [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66BYDWAT92N6L)
+- Patreon: [Donate](https://www.patreon.com/nunomaduro)
+
+## License
+
+Laravel Console Summary is an open-sourced software licensed under the [MIT license](LICENSE.md).
