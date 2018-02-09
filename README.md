@@ -10,7 +10,7 @@
 
 ## About Laravel Console Summary
 
-Laravel Console Summary was created by, and is maintained by [Nuno Maduro](https://github.com/nunomaduro), and is a replacement for the List Command in Laravel Console Commands.
+Laravel Console Summary was created by, and is maintained by [Nuno Maduro](https://github.com/nunomaduro), and is a replacement for the List Command in Laravel Console Applications. Beautiful Laravel Console Summary for Artisan or Laravel Zero.
 
 ## Installation
 
