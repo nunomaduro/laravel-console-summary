@@ -21,8 +21,5 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 interface DescriberContract
 {
-    /**
-     * {@inheritdoc}
-     */
     public function describe(Application $application, OutputInterface $output): void;
 }
