@@ -28,8 +28,6 @@ class Describer implements DescriberContract
     /**
      * The bigger command name width.
      *
-     * @internal
-     *
      * @var int
      */
     private $width = 0;
