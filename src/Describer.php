@@ -16,6 +16,7 @@ namespace NunoMaduro\LaravelConsoleSummary;
 use Illuminate\Console\Application;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Helper\TableStyle;
+use Symfony\Component\Console\Helper\TableSeparator;
 use Symfony\Component\Console\Output\OutputInterface;
 use NunoMaduro\LaravelConsoleSummary\Contracts\DescriberContract;
 
@@ -24,6 +25,15 @@ use NunoMaduro\LaravelConsoleSummary\Contracts\DescriberContract;
  */
 class Describer implements DescriberContract
 {
+    /**
+     * The bigger command name width.
+     *
+     * @internal
+     *
+     * @var int
+     */
+    private $width = 0;
+
     /**
      * {@inheritdoc}
      */
@@ -78,39 +88,28 @@ class Describer implements DescriberContract
      */
     protected function describeCommands(Application $application, OutputInterface $output): DescriberContract
     {
-        $style = (new TableStyle())->setHorizontalBorderChar('')
-            ->setVerticalBorderChar('')
-            ->setCrossingChar('');
+        $this->width = 0;
 
-        $table = (new Table($output))->setStyle($style);
+        $namespaces = collect($application->all())->groupBy(function ($command) {
+            $nameParts = explode(':', $name = $command->getName());
+            $this->width = max($this->width, mb_strlen($name));
 
-        $namespaces = collect($application->all())
-            ->groupBy(
-                function ($command) {
-                    $nameParts = explode(':', $command->getName());
-
-                    return isset($nameParts[1]) ? $nameParts[0] : '';
-                }
-            )
-            ->toArray();
+            return isset($nameParts[1]) ? $nameParts[0] : '';
+        })->toArray();
 
         ksort($namespaces);
+        collect($namespaces)->map(function ($commands) use ($output) {
+            $output->write("\n");
 
-        $list = [];
-
-        collect($namespaces)->map(
-            function ($commands) use (&$list) {
-                $list[] = ['', ''];
-                collect($commands)->each(
-                    function ($command) use (&$list) {
-                        $list[] = ["<fg=green>{$command->getName()}</>", $command->getDescription()];
-                    }
-                );
-            }
-        );
-
-        $table->setRows($list)
-            ->render();
+            collect($commands)->each(function ($command) use ($output) {
+                $output->write(sprintf(
+                    "  <fg=green>%s</>%s%s\n",
+                    $command->getName(),
+                    str_repeat(' ', $this->width - mb_strlen($command->getName()) + 1),
+                    $command->getDescription()
+                ));
+            });
+        });
 
         return $this;
     }
