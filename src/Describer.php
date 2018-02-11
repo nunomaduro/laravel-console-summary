@@ -14,9 +14,6 @@ declare(strict_types=1);
 namespace NunoMaduro\LaravelConsoleSummary;
 
 use Illuminate\Console\Application;
-use Symfony\Component\Console\Helper\Table;
-use Symfony\Component\Console\Helper\TableStyle;
-use Symfony\Component\Console\Helper\TableSeparator;
 use Symfony\Component\Console\Output\OutputInterface;
 use NunoMaduro\LaravelConsoleSummary\Contracts\DescriberContract;
 
