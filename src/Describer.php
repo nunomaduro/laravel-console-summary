@@ -37,8 +37,6 @@ class Describer implements DescriberContract
         $this->describeTitle($application, $output)
             ->describeUsage($output)
             ->describeCommands($application, $output);
-
-        $output->write("\n");
     }
 
     /**
@@ -85,7 +83,9 @@ class Describer implements DescriberContract
     {
         $this->width = 0;
 
-        $namespaces = collect($application->all())->groupBy(function ($command) {
+        $namespaces = collect($application->all())->filter(function($command) {
+            return ! $command->isHidden();
+        })->groupBy(function ($command) {
             $nameParts = explode(':', $name = $command->getName());
             $this->width = max($this->width, mb_strlen($name));
 
