@@ -90,20 +90,23 @@ class Describer implements DescriberContract
             $this->width = max($this->width, mb_strlen($name));
 
             return isset($nameParts[1]) ? $nameParts[0] : '';
-        })->toArray();
-
-        ksort($namespaces);
-        collect($namespaces)->map(function ($commands) use ($output) {
+        })->sortKeys()->each(function ($commands) use ($output) {
             $output->write("\n");
 
-            collect($commands)->each(function ($command) use ($output) {
+            $commands = $commands->toArray();
+
+            usort($commands, function($a, $b) {
+                return $a->getName() > $b->getName();
+            });
+
+            foreach ($commands as $command) {
                 $output->write(sprintf(
                     "  <fg=green>%s</>%s%s\n",
                     $command->getName(),
                     str_repeat(' ', $this->width - mb_strlen($command->getName()) + 1),
                     $command->getDescription()
                 ));
-            });
+            }
         });
 
         return $this;
