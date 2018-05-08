@@ -50,7 +50,7 @@ class Describer implements DescriberContract
     protected function describeTitle(Application $application, OutputInterface $output): DescriberContract
     {
         $output->write(
-            "\n<fg=white;options=bold>{$application->getName()} </> <fg=green;options=bold>{$application->getVersion()}</>\n\n"
+            "\n  <fg=white;options=bold>{$application->getName()} </> <fg=green;options=bold>{$application->getVersion()}</>\n\n"
         );
 
         return $this;
@@ -66,7 +66,7 @@ class Describer implements DescriberContract
     protected function describeUsage(OutputInterface $output): DescriberContract
     {
         $binary = ARTISAN_BINARY;
-        $output->write("<fg=yellow;options=bold>USAGE:</> $binary <command> [options] [arguments]\n");
+        $output->write("  <fg=yellow;options=bold>USAGE:</> $binary <command> [options] [arguments]\n");
 
         return $this;
     }

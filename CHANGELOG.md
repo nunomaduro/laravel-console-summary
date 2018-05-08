@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [1.0.0] - 2018-02-04
 ### Added
-- Initial version.
+- Initial version
 
 ## [1.0.1] - 2018-02-11
 ### Fixes
@@ -15,3 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [1.0.2] - 2018-05-08
 ### Fixes
 - Commands order inside namespace
+
+## [1.0.3] - 2018-05-08
+### Changed
+- Minor updates on describer output
