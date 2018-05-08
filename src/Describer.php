@@ -95,7 +95,7 @@ class Describer implements DescriberContract
 
             $commands = $commands->toArray();
 
-            usort($commands, function($a, $b) {
+            usort($commands, function ($a, $b) {
                 return $a->getName() > $b->getName();
             });
 
