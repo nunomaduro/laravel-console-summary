@@ -4,18 +4,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [1.0.0] - 2018-02-04
+## [1.0.4] - 2018-08-27
 ### Added
-- Initial version
+- Support to Laravel 5.7
 
-## [1.0.1] - 2018-02-11
-### Fixes
-- Unwanted display of hidden commands
+## [1.0.3] - 2018-05-08
+### Changed
+- Minor updates on describer output
 
 ## [1.0.2] - 2018-05-08
 ### Fixes
 - Commands order inside namespace
 
-## [1.0.3] - 2018-05-08
-### Changed
-- Minor updates on describer output
+## [1.0.1] - 2018-02-11
+### Fixes
+- Unwanted display of hidden commands
+
+## [1.0.0] - 2018-02-04
+### Added
+- Initial version
