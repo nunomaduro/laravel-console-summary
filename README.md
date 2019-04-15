@@ -37,7 +37,7 @@ Supports wildcards:
 // config/laravel-console-summary.php
 
 return [
-    'muted_commands' => [
+    'hide' => [
         'make:*',
         'list'
     ],
