@@ -93,7 +93,7 @@ class Describer implements DescriberContract
             $hasExactMatch = $hide->contains($command->getName());
             $hasWildcardMatch = $hide->contains($nameParts[0].':*');
 
-            return ! $hasExactMatch && ! $hasExactMatch;
+            return ! $hasExactMatch && ! $hasWildcardMatch;
         })->groupBy(function ($command) {
             $nameParts = explode(':', $name = $command->getName());
             $this->width = max($this->width, mb_strlen($name));
