@@ -87,13 +87,13 @@ class Describer implements DescriberContract
 
         $namespaces = collect($application->all())->filter(function ($command) {
             return ! $command->isHidden();
-        })->filter(function($command) use($hide){
+        })->filter(function ($command) use ($hide) {
             $nameParts = explode(':', $name = $command->getName());
-            
+
             $hasExactMatch = $muted->contains($command->getName());
             $hasWildcardMatch = $muted->contains($nameParts[0].':*');
-            
-            return !$has_exact_match && !$has_wildcard_match;
+
+            return ! $hasExactMatch && ! $hasExactMatch;
         })->groupBy(function ($command) {
             $nameParts = explode(':', $name = $command->getName());
             $this->width = max($this->width, mb_strlen($name));
