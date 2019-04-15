@@ -90,8 +90,8 @@ class Describer implements DescriberContract
         })->filter(function ($command) use ($hide) {
             $nameParts = explode(':', $name = $command->getName());
 
-            $hasExactMatch = $muted->contains($command->getName());
-            $hasWildcardMatch = $muted->contains($nameParts[0].':*');
+            $hasExactMatch = $hide->contains($command->getName());
+            $hasWildcardMatch = $hide->contains($nameParts[0].':*');
 
             return ! $hasExactMatch && ! $hasExactMatch;
         })->groupBy(function ($command) {
