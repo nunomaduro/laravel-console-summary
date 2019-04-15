@@ -1,7 +1,4 @@
 <?php
-/**
- * Console Summary Configuration
- */
 
 return [
     'hide' => [
