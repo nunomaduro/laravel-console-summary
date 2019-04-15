@@ -4,7 +4,7 @@
  */
 
 return [
-    'muted_commands' => [
+    'hide' => [
         'make:*',
         'list'
     ],
