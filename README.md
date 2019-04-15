@@ -22,6 +22,28 @@ Require Laravel Console Summary using [Composer](https://getcomposer.org):
 composer require nunomaduro/laravel-console-summary
 ```
 
+## Configuration
+
+Publish the configuration
+
+```bash
+php artisan vendor:publish
+```
+
+You may want to clean up the summary screen by hiding some well-known commands from it. They will still be available in your application.
+Supports wildcards:
+
+```php
+// config/laravel-console-summary.php
+
+return [
+    'muted_commands' => [
+        'make:*',
+        'list'
+    ],
+];
+```
+
 ## Contributing
 
 Thank you for considering to contribute to Laravel Console Summary. All the contribution guidelines are mentioned [here](CONTRIBUTING.md).
