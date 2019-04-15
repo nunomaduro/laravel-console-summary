@@ -83,7 +83,7 @@ class Describer implements DescriberContract
     {
         $this->width = 0;
 
-        $muted = collect(config('laravel-console-summary.muted_commands'));
+        $hide = collect(config('laravel-console-summary.hide'));
 
         $namespaces = collect($application->all())->filter(function ($command) {
             return ! $command->isHidden();
