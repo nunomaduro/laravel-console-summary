@@ -26,6 +26,10 @@ class LaravelConsoleSummaryServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->publishes([
+            __DIR__.'/../config/config.php' => config_path('laravel-console-summary.php'),
+        ], 'config');
+
         $this->commands(SummaryCommand::class);
     }
 
@@ -34,6 +38,7 @@ class LaravelConsoleSummaryServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravel-console-summary');
         $this->app->singleton(DescriberContract::class, Describer::class);
     }
 }

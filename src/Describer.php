@@ -83,8 +83,17 @@ class Describer implements DescriberContract
     {
         $this->width = 0;
 
+        $hide = collect(config('laravel-console-summary.hide'));
+
         $namespaces = collect($application->all())->filter(function ($command) {
             return ! $command->isHidden();
+        })->filter(function ($command) use ($hide) {
+            $nameParts = explode(':', $name = $command->getName());
+
+            $hasExactMatch = $hide->contains($command->getName());
+            $hasWildcardMatch = $hide->contains($nameParts[0].':*');
+
+            return ! $hasExactMatch && ! $hasWildcardMatch;
         })->groupBy(function ($command) {
             $nameParts = explode(':', $name = $command->getName());
             $this->width = max($this->width, mb_strlen($name));
