@@ -30,8 +30,7 @@ Publish the configuration
 php artisan vendor:publish
 ```
 
-You may want to clean up the summary screen by hiding some well-known commands from it. They will still be available in your application.
-Supports wildcards:
+You may want to clean up the summary screen by hiding some well-known commands from it. Of course, even hidden, they will still be available.
 
 ```php
 // config/laravel-console-summary.php
