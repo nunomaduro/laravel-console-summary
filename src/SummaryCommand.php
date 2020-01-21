@@ -49,12 +49,14 @@ class SummaryCommand extends ListCommand
     /**
      * {@inheritdoc}
      */
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         if ($input->getOption('format') === static::FORMAT && ! $input->getOption('raw')) {
             $this->container[DescriberContract::class]->describe($this->getApplication(), $output);
-        } else {
-            parent::execute($input, $output);
+
+            return 0;
         }
+
+        return parent::execute($input, $output);
     }
 }
