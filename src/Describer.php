@@ -14,8 +14,8 @@ declare(strict_types=1);
 namespace NunoMaduro\LaravelConsoleSummary;
 
 use Illuminate\Console\Application;
-use Symfony\Component\Console\Output\OutputInterface;
 use NunoMaduro\LaravelConsoleSummary\Contracts\DescriberContract;
+use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * This is an Laravel Console Summary Text Describer implementation.
