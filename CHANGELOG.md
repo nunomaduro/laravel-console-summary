@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.5.0] - 2020-08-27
+### Added
+- Support to Laravel 8
+
 ## [1.4.0] - 2020-01-21
 ### Changed
 - Require minimum of Illuminate version 7 dependencies
