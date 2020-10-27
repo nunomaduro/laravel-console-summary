@@ -94,6 +94,8 @@ class Describer implements DescriberContract
             $hasWildcardMatch = $hide->contains($nameParts[0].':*');
 
             return ! $hasExactMatch && ! $hasWildcardMatch;
+        })->unique(function ($command) {
+            return $command->getName();
         })->groupBy(function ($command) {
             $nameParts = explode(':', $name = $command->getName());
             $this->width = max($this->width, mb_strlen($name));
@@ -110,9 +112,10 @@ class Describer implements DescriberContract
 
             foreach ($commands as $command) {
                 $output->write(sprintf(
-                    "  <fg=green>%s</>%s%s\n",
+                    "  <fg=green>%s</>%s%s%s\n",
                     $command->getName(),
                     str_repeat(' ', $this->width - mb_strlen($command->getName()) + 1),
+                    $command->getAliases() ? '<fg=cyan>[</>'.implode('|', $command->getAliases()).'<fg=cyan>]</> ' : '',
                     $command->getDescription()
                 ));
             }
