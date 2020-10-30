@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.7.0] - 2020-10-30
+### Added
+- Add support for PHP 8 ([#11](https://github.com/nunomaduro/laravel-console-summary/pull/11))
+
 ## [1.6.0] - 2020-10-28
 ### Changed
 - Remove duplicates when using command aliases ([#10](https://github.com/nunomaduro/laravel-console-summary/pull/10))
