@@ -107,7 +107,7 @@ class Describer implements DescriberContract
             $commands = $commands->toArray();
 
             usort($commands, function ($a, $b) {
-                return $a->getName() > $b->getName();
+                return strcmp($a->getName(), $b->getName());
             });
 
             foreach ($commands as $command) {
