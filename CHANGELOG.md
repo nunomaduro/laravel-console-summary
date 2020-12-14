@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.7.1] - 2020-12-14
+### Fixed
+- Fix issue with `usort()` in PHP 8 ([#12](https://github.com/nunomaduro/laravel-console-summary/pull/12))
+
 ## [1.7.0] - 2020-10-30
 ### Added
 - Add support for PHP 8 ([#11](https://github.com/nunomaduro/laravel-console-summary/pull/11))
