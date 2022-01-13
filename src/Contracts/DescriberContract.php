@@ -25,9 +25,8 @@ interface DescriberContract
      * Describes the provided laravel console application
      * using the provided output.
      *
-     * @param \Illuminate\Console\Application $application
-     *
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @param  \Illuminate\Console\Application  $application
+     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      */
     public function describe(Application $application, OutputInterface $output): void;
 }

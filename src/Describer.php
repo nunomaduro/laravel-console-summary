@@ -42,9 +42,8 @@ class Describer implements DescriberContract
     /**
      * Describes the application title.
      *
-     * @param \Illuminate\Console\Application $application
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
+     * @param  \Illuminate\Console\Application  $application
+     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @return \NunoMaduro\LaravelConsoleSummary\Contracts\DescriberContract
      */
     protected function describeTitle(Application $application, OutputInterface $output): DescriberContract
@@ -59,8 +58,7 @@ class Describer implements DescriberContract
     /**
      * Describes the application title.
      *
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
+     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @return \NunoMaduro\LaravelConsoleSummary\Contracts\DescriberContract
      */
     protected function describeUsage(OutputInterface $output): DescriberContract
@@ -74,9 +72,8 @@ class Describer implements DescriberContract
     /**
      * Describes the application commands.
      *
-     * @param \Illuminate\Console\Application $application
-     * @param \Symfony\Component\Console\Output\OutputInterface $output
-     *
+     * @param  \Illuminate\Console\Application  $application
+     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @return \NunoMaduro\LaravelConsoleSummary\Contracts\DescriberContract
      */
     protected function describeCommands(Application $application, OutputInterface $output): DescriberContract

@@ -37,7 +37,7 @@ class SummaryCommand extends ListCommand
     /**
      * SummaryCommand constructor.
      *
-     * @param \Illuminate\Contracts\Container\Container $container
+     * @param  \Illuminate\Contracts\Container\Container  $container
      */
     public function __construct(Container $container)
     {
