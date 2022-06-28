@@ -49,7 +49,7 @@ class Describer implements DescriberContract
     protected function describeTitle(Application $application, OutputInterface $output): DescriberContract
     {
         $output->write(
-            "\n  <fg=white;options=bold>{$application->getName()} </> <fg=green;options=bold>{$application->getVersion()}</>\n\n"
+            "<fg=white;options=bold>{$application->getName()}</> <fg=green>{$application->getVersion()}</>\n\n"
         );
 
         return $this;
@@ -64,7 +64,7 @@ class Describer implements DescriberContract
     protected function describeUsage(OutputInterface $output): DescriberContract
     {
         $binary = ARTISAN_BINARY;
-        $output->write("  <fg=yellow;options=bold>USAGE:</> $binary <command> [options] [arguments]\n");
+        $output->write("<fg=yellow>Usage:</>\n  <fg=white;options=bold>$binary</> <command> [options] [arguments]\n");
 
         return $this;
     }
@@ -82,6 +82,7 @@ class Describer implements DescriberContract
 
         $hide = collect(config('laravel-console-summary.hide'));
 
+        $output->write("\n<comment>Available commands:</comment>");
         $namespaces = collect($application->all())->filter(function ($command) {
             return ! $command->isHidden();
         })->filter(function ($command) use ($hide) {
@@ -98,8 +99,8 @@ class Describer implements DescriberContract
             $this->width = max($this->width, mb_strlen($name));
 
             return isset($nameParts[1]) ? $nameParts[0] : '';
-        })->sortKeys()->each(function ($commands) use ($output) {
-            $output->write("\n");
+        })->sortKeys()->each(function ($commands,$key) use ($output) {
+            $output->write(sprintf(" <comment>%s</comment>\n",$key));
 
             $commands = $commands->toArray();
 
