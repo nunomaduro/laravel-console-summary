@@ -28,7 +28,7 @@ class LaravelConsoleSummaryServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__.'/../config/config.php' => config_path('laravel-console-summary.php'),
-        ], 'config');
+        ], 'laravel-console-summary-config');
 
         $this->commands(SummaryCommand::class);
     }
