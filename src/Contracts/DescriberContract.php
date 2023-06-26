@@ -16,17 +16,11 @@ namespace NunoMaduro\LaravelConsoleSummary\Contracts;
 use Illuminate\Console\Application;
 use Symfony\Component\Console\Output\OutputInterface;
 
-/**
- * This is an Laravel Console Summary Text Describer Contract.
- */
 interface DescriberContract
 {
     /**
      * Describes the provided laravel console application
      * using the provided output.
-     *
-     * @param  \Illuminate\Console\Application  $application
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      */
     public function describe(Application $application, OutputInterface $output): void;
 }

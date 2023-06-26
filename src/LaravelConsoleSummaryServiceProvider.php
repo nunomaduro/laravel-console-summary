@@ -16,15 +16,9 @@ namespace NunoMaduro\LaravelConsoleSummary;
 use Illuminate\Support\ServiceProvider;
 use NunoMaduro\LaravelConsoleSummary\Contracts\DescriberContract;
 
-/**
- * This is an Laravel Console Summary Service Provider implementation.
- */
 class LaravelConsoleSummaryServiceProvider extends ServiceProvider
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function boot()
+    public function boot(): void
     {
         $this->publishes([
             __DIR__.'/../config/config.php' => config_path('laravel-console-summary.php'),
@@ -33,10 +27,8 @@ class LaravelConsoleSummaryServiceProvider extends ServiceProvider
         $this->commands(SummaryCommand::class);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function register()
+    /** {@inheritdoc} */
+    public function register(): void
     {
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravel-console-summary');
         $this->app->singleton(DescriberContract::class, Describer::class);

@@ -18,4 +18,16 @@ return [
         'list',
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Custom Binary Name
+    |--------------------------------------------------------------------------
+    |
+    | This option allows to override the Artisan binary name that is used
+    | in the command usage output.
+    |
+    */
+
+    'binary' => null,
+
 ];

@@ -43,13 +43,26 @@ return [
 ];
 ```
 
+You can also override the binary name that is output in the usage information, by adding a `binary` key to your config.
+
+```php
+// config/laravel-console-summary.php
+
+return [
+    // ...
+    
+    'binary' => 'custom-name',
+];
+```
+
 ## Contributing
 
 Thank you for considering to contribute to Laravel Console Summary. All the contribution guidelines are mentioned [here](CONTRIBUTING.md).
 
-You can have a look at the [CHANGELOG](CHANGELOG.md) for constant updates & detailed information about the changes. You can also follow the twitter account for latest announcements or just come say hi!: [@enunomaduro](https://twitter.com/enunomaduro)
+You can have a look at the [CHANGELOG](CHANGELOG.md) for constant updates & detailed information about the changes. You can also follow the Twitter account for latest announcements or just come say hi!: [@enunomaduro](https://twitter.com/enunomaduro)
 
 ## Support the development
+
 **Do you like this project? Support it by donating**
 
 - PayPal: [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66BYDWAT92N6L)

@@ -14,20 +14,20 @@ declare(strict_types=1);
 namespace NunoMaduro\LaravelConsoleSummary;
 
 use Illuminate\Console\Application;
+use Illuminate\Contracts\Config\Repository;
 use NunoMaduro\LaravelConsoleSummary\Contracts\DescriberContract;
 use Symfony\Component\Console\Output\OutputInterface;
 
-/**
- * This is an Laravel Console Summary Text Describer implementation.
- */
 class Describer implements DescriberContract
 {
     /**
      * The bigger command name width.
-     *
-     * @var int
      */
-    private $width = 0;
+    private int $width = 0;
+
+    public function __construct(private readonly Repository $config)
+    {
+    }
 
     /**
      * {@inheritdoc}
@@ -41,10 +41,6 @@ class Describer implements DescriberContract
 
     /**
      * Describes the application title.
-     *
-     * @param  \Illuminate\Console\Application  $application
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
-     * @return \NunoMaduro\LaravelConsoleSummary\Contracts\DescriberContract
      */
     protected function describeTitle(Application $application, OutputInterface $output): DescriberContract
     {
@@ -57,43 +53,32 @@ class Describer implements DescriberContract
 
     /**
      * Describes the application title.
-     *
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
-     * @return \NunoMaduro\LaravelConsoleSummary\Contracts\DescriberContract
      */
     protected function describeUsage(OutputInterface $output): DescriberContract
     {
-        $binary = ARTISAN_BINARY;
-        $output->write("  <fg=yellow;options=bold>USAGE:</> $binary <command> [options] [arguments]\n");
+        $binary = $this->config->get('laravel-console-summary.binary', ARTISAN_BINARY);
+        $output->write("  <fg=yellow;options=bold>USAGE:</> {$binary} <command> [options] [arguments]\n");
 
         return $this;
     }
 
     /**
      * Describes the application commands.
-     *
-     * @param  \Illuminate\Console\Application  $application
-     * @param  \Symfony\Component\Console\Output\OutputInterface  $output
-     * @return \NunoMaduro\LaravelConsoleSummary\Contracts\DescriberContract
      */
     protected function describeCommands(Application $application, OutputInterface $output): DescriberContract
     {
         $this->width = 0;
 
-        $hide = collect(config('laravel-console-summary.hide'));
+        $hide = collect($this->config->get('laravel-console-summary.hide', []));
 
-        $namespaces = collect($application->all())->filter(function ($command) {
-            return ! $command->isHidden();
-        })->filter(function ($command) use ($hide) {
+        collect($application->all())->filter(fn ($command) => ! $command->isHidden())->filter(function ($command) use ($hide) {
             $nameParts = explode(':', $name = $command->getName());
 
             $hasExactMatch = $hide->contains($command->getName());
             $hasWildcardMatch = $hide->contains($nameParts[0].':*');
 
             return ! $hasExactMatch && ! $hasWildcardMatch;
-        })->unique(function ($command) {
-            return $command->getName();
-        })->groupBy(function ($command) {
+        })->unique(fn ($command) => $command->getName())->groupBy(function ($command) {
             $nameParts = explode(':', $name = $command->getName());
             $this->width = max($this->width, mb_strlen($name));
 

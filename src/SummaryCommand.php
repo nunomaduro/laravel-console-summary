@@ -19,9 +19,6 @@ use Symfony\Component\Console\Command\ListCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-/**
- * This is an Laravel Console Summary Command implementation.
- */
 class SummaryCommand extends ListCommand
 {
     /**
@@ -36,8 +33,6 @@ class SummaryCommand extends ListCommand
 
     /**
      * SummaryCommand constructor.
-     *
-     * @param  \Illuminate\Contracts\Container\Container  $container
      */
     public function __construct(Container $container)
     {
