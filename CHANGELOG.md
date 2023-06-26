@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.9.1] - 2023-02-03
+
+### Changed
+- Improve `vendor:publish` config tag
+
+## [1.9.0] - 2023-01-11
+
+### Added
+- Add support for Laravel 10
+
+### Removed
+- Remove support for PHP `<8.1`
+
+## [1.8.0] - 2022-01-13
+
+### Added
+- Add support for Laravel 9
+
 ## [1.7.1] - 2020-12-14
 ### Fixed
 - Fix issue with `usort()` in PHP 8 ([#12](https://github.com/nunomaduro/laravel-console-summary/pull/12))
