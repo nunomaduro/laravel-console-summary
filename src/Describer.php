@@ -71,26 +71,43 @@ class Describer implements DescriberContract
 
         $hide = collect($this->config->get('laravel-console-summary.hide', []));
 
-        collect($application->all())->filter(fn ($command) => ! $command->isHidden())->filter(function ($command) use ($hide) {
+        collect($application->all())->filter(fn ($command) => ! $command->isHidden())->filter($this->filterCommands($hide))
+            ->unique(fn ($command) => $command->getName())->groupBy($this->groupCommands())
+            ->sortKeys()->each($this->describeCommandGroup($output));
+
+        return $this;
+    }
+
+    protected function filterCommands(\Illuminate\Support\Collection $hide): \Closure
+    {
+        return function ($command) use ($hide) {
             $nameParts = explode(':', $name = $command->getName());
 
             $hasExactMatch = $hide->contains($command->getName());
             $hasWildcardMatch = $hide->contains($nameParts[0].':*');
 
             return ! $hasExactMatch && ! $hasWildcardMatch;
-        })->unique(fn ($command) => $command->getName())->groupBy(function ($command) {
+        };
+    }
+
+    protected function groupCommands(): \Closure
+    {
+        return function ($command) {
             $nameParts = explode(':', $name = $command->getName());
             $this->width = max($this->width, mb_strlen($name));
 
             return isset($nameParts[1]) ? $nameParts[0] : '';
-        })->sortKeys()->each(function ($commands) use ($output) {
+        };
+    }
+
+    protected function describeCommandGroup(OutputInterface $output): \Closure
+    {
+        return function ($commands) use ($output) {
             $output->write("\n");
 
             $commands = $commands->toArray();
 
-            usort($commands, function ($a, $b) {
-                return strcmp($a->getName(), $b->getName());
-            });
+            $this->sortCommandsInGroup($commands);
 
             foreach ($commands as $command) {
                 $output->write(sprintf(
@@ -101,8 +118,13 @@ class Describer implements DescriberContract
                     $command->getDescription()
                 ));
             }
-        });
+        };
+    }
 
-        return $this;
+    protected static function sortCommandsInGroup(array &$commands): void
+    {
+        usort($commands, function ($a, $b) {
+            return strcmp($a->getName(), $b->getName());
+        });
     }
 }
