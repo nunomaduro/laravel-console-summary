@@ -101,6 +101,8 @@ class Describer implements DescriberContract
                     $command->getDescription()
                 ));
             }
+        })->whenNotEmpty(function () use ($output) {
+            $output->writeln('');
         });
 
         return $this;
