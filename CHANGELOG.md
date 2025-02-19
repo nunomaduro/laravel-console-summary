@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com)
 and this project adheres to [Semantic Versioning](https://semver.org).
 
+## 1.13.0 - 2025-02-19
+
+### Added
+- Add support for Laravel 12 ([#23](https://github.com/nunomaduro/laravel-console-summary/pull/23))
+
 ## 1.11.1 - 2024-04-09
 
 ### Changed
