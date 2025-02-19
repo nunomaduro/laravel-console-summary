@@ -24,8 +24,8 @@
     ],
     "require": {
         "php": "^8.2",
-        "illuminate/console": "^11.4",
-        "illuminate/support": "^11.4"
+        "illuminate/console": "^11.4|^12.0",
+        "illuminate/support": "^11.4|^12.0"
     },
     "autoload": {
         "psr-4": {
