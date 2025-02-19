@@ -14,7 +14,7 @@ Laravel Console Summary was created by, and is maintained by [Nuno Maduro](https
 
 ## Installation
 
-> **Requires [PHP 8.1+](https://php.net/releases)**
+> **Requires [PHP 8.2+](https://php.net/releases)**
 
 Require Laravel Console Summary using [Composer](https://getcomposer.org):
 

@@ -25,9 +25,7 @@ class Describer implements DescriberContract
      */
     private int $width = 0;
 
-    public function __construct(private readonly Repository $config)
-    {
-    }
+    public function __construct(private readonly Repository $config) {}
 
     /**
      * {@inheritdoc}
