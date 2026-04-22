@@ -4,9 +4,9 @@
 
 <p align="center">
   <a href="https://github.com/nunomaduro/laravel-console-summary/actions/workflows/static.yml"><img src="https://img.shields.io/github/actions/workflow/status/nunomaduro/laravel-console-summary/static.yml?branch=master&style=flat-square&label=static%20analysis" alt="Static Analysis"></img></a>
-  <a href="https://youtube.com/@nunomaduro?sub_confirmation=1"><img alt="YouTube Channel Subscribers" src="https://img.shields.io/youtube/channel/subscribers/UCO_hYZF2gb_CyG5sA7ArlGg?style=flat&label=youtube&color=brightgreen"></a>
   <a href="https://packagist.org/packages/nunomaduro/laravel-console-summary"><img src="https://poser.pugx.org/nunomaduro/laravel-console-summary/v/stable.svg" alt="Latest Stable Version"></a>
   <a href="https://packagist.org/packages/nunomaduro/laravel-console-summary"><img src="https://poser.pugx.org/nunomaduro/laravel-console-summary/license.svg" alt="License"></a>
+  <a href="https://youtube.com/@nunomaduro?sub_confirmation=1"><img alt="YouTube Channel Subscribers" src="https://img.shields.io/youtube/channel/subscribers/UCO_hYZF2gb_CyG5sA7ArlGg?style=flat&label=youtube&color=brightgreen"></a>
 </p>
 
 ## About Laravel Console Summary
